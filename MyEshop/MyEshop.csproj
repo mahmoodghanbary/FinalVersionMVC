@@ -146,12 +146,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\UserPanel\Controllers\AccountController.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageEmailsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +187,11 @@
     <Content Include="Areas\UserPanel\Views\Account\ChanagePassword.cshtml" />
     <Content Include="Areas\UserPanel\Views\web.config" />
     <Content Include="Areas\UserPanel\Views\Account\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\ActiveUser.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
@@ -201,6 +208,7 @@
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\Shared\_LoggedinUser.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Product\ShowGroups.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
