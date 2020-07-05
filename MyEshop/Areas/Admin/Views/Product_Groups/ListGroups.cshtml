@@ -11,7 +11,8 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr id="group_@(item.GroupID)">
             <td>
                 @Html.DisplayFor(modelItem => item.GroupTitle)
@@ -22,20 +23,27 @@
                     <ul>
                         @foreach (var subGroup in item.Product_Groups1)
                         {
-                            <li>@subGroup.GroupTitle</li>
+                            <li id="group_@(subGroup.GroupID)">
+                                @subGroup.GroupTitle     <a class=" btn btn-warning btn-xs" onclick="Edit(@subGroup.GroupID)">
+                                ویرایش
+                            </a>
+                            <a class="btn btn-danger btn-xs" onclick="Delete(@subGroup.GroupID)">
+                                حذف
+                            </a>
+                        </li>
                         }
                     </ul>
                 }
             </td>
             <td>
-                <a class="btn btn-primary btn-xs">
-                    <i class="glyphicon glyphicon-plus"></i>
+                <a class="btn btn-primary btn-xs" onclick="Create(@item.GroupID)">
+                    افزودن زیر گروه جدید
                 </a>
                 <a class="btn btn-warning btn-xs" onclick="Edit(@item.GroupID)">
-                    <i class="glyphicon glyphicon-edit"></i>
+                     ویرایش عنوان گروه
                 </a>
                 <a class="btn btn-danger btn-xs" onclick="Delete(@item.GroupID)">
-                    <i class="glyphicon glyphicon-trash"></i>
+                     حذف کامل 
                 </a>
             </td>
         </tr>

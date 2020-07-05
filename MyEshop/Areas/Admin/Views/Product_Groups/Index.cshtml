@@ -30,8 +30,8 @@
 </div>
 
 <script>
-    function Create() {
-        $.get("/Admin/Product_Groups/Create",
+    function Create(parentId) {
+        $.get("/Admin/Product_Groups/Create/"+parentId,
             function(result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("افزودن گروه جدید");

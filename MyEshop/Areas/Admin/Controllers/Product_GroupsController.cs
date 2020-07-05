@@ -42,9 +42,12 @@ namespace MyEshop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product_Groups/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return PartialView();
+            return PartialView(new Product_Groups()
+            {
+                ParentID = id
+            });
         }
 
         // POST: Admin/Product_Groups/Create
