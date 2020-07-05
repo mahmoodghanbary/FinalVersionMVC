@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,8 +17,14 @@ namespace MyEshop.Areas.Admin.Controllers
         // GET: Admin/Product_Groups
         public ActionResult Index()
         {
-            var product_Groups = db.Product_Groups.Where(g=> g.ParentID == null);
-            return View(product_Groups.ToList());
+            
+            return View();
+        }
+
+        public ActionResult ListGroups()
+        {
+            var product_Groups = db.Product_Groups.Where(g => g.ParentID == null);
+            return PartialView(product_Groups.ToList());
         }
 
         // GET: Admin/Product_Groups/Details/5
@@ -39,8 +45,7 @@ namespace MyEshop.Areas.Admin.Controllers
         // GET: Admin/Product_Groups/Create
         public ActionResult Create()
         {
-            ViewBag.ParentID = new SelectList(db.Product_Groups, "GroupID", "GroupTitle");
-            return View();
+            return PartialView();
         }
 
         // POST: Admin/Product_Groups/Create
@@ -54,7 +59,7 @@ namespace MyEshop.Areas.Admin.Controllers
             {
                 db.Product_Groups.Add(product_Groups);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return PartialView("ListGroups", db.Product_Groups.Where(g => g.ParentID == null));
             }
 
             ViewBag.ParentID = new SelectList(db.Product_Groups, "GroupID", "GroupTitle", product_Groups.ParentID);

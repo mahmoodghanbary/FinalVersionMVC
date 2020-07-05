@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DataLayer.Product_Groups>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </th>
+        <th>
+            زیر گروه
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Groups2.GroupTitle)
+            </td>
+            <td>
+                <a class="btn btn-primary btn-xs">
+                    افزودن زیر گروه
+                </a>
+                <a class="btn btn-warning btn-xs">
+                    ویرایش
+                </a>
+                <a class="btn btn-danger btn-xs">
+                    حذف
+                </a>
+            </td>
+        </tr>
+    }
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body" id="myModalBody">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</table>

@@ -1,53 +1,47 @@
-﻿@model IEnumerable<DataLayer.Product_Groups>
+﻿
 
 @{
     ViewBag.Title = "Index";
 }
 
+
+
 <h2>Index</h2>
 
 <p>
-    <a class="btn btn-success">افزودن گروه جدید </a>
+    <a id="add-new-group" class="btn btn-success" onclick="Create()">افزودن سرگروه جدید</a>
 </p>
-<table class="table table-bordered">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupTitle)
-        </th>
-        <th>
-           زیر گروه ها
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupTitle)
-        </td>
-        <td>
-            @if (item.Product_Groups1.Any())
-            {
-                <ul>
-                    @foreach(var subGroup in item.Product_Groups1)
-                    {
-                        <li>@subGroup.GroupTitle</li>
-                    }
-                </ul>
-            }
-        </td>
-        <td>
-            <a class="btn btn-primary btn-sm">
-                افزودن
-            </a>
-            <a class="btn btn-warning btn-sm">
-                ویرایش
-            </a>
-            <a class="btn btn-danger btn-sm">
-                حذف
-            </a>
-        </td>
-    </tr>
-}
+<div id="ListGroups">
+    @Html.Action("ListGroups")
+</div>
 
-</table>
+
+
+
+
+<script>
+    function Create() {
+        $.get("/Admin/Product_Groups/Create",
+            function (result) {
+                $("#myModal").modal("show");
+                $("#myModalLabel").html("افزودن گروه جدید");
+                $("#myModalBody").html(result);
+            });
+        }
+     function success() {
+        $("#myModal").modal('hide');
+    }
+    //$('#add-new-group').click(Create);
+</script>
+
+
+
+
+
+
+
+
+
+
+

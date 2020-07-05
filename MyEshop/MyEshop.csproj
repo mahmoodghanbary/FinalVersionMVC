@@ -134,12 +134,31 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\carousel.js" />
     <Content Include="Content\js\jquery-v1.11.3.js" />
+    <Content Include="Content\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Content\js\modernizr.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\script.js" />
     <Content Include="Content\js\wow.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product_Groups\ListGroups.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modal.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -187,11 +206,6 @@
     <Content Include="Areas\UserPanel\Views\Account\ChanagePassword.cshtml" />
     <Content Include="Areas\UserPanel\Views\web.config" />
     <Content Include="Areas\UserPanel\Views\Account\ChangePassword.cshtml" />
-    <Content Include="Areas\Admin\Views\Product_Groups\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Product_Groups\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Product_Groups\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Product_Groups\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Product_Groups\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\ActiveUser.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
@@ -209,6 +223,8 @@
     <Content Include="Views\Shared\_LoggedinUser.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Product\ShowGroups.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
