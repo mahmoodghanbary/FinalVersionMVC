@@ -17,7 +17,6 @@ namespace MyEshop.Areas.Admin.Controllers
         // GET: Admin/Product_Groups
         public ActionResult Index()
         {
-            
             return View();
         }
 
@@ -50,7 +49,7 @@ namespace MyEshop.Areas.Admin.Controllers
 
         // POST: Admin/Product_Groups/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GroupID,GroupTitle,ParentID")] Product_Groups product_Groups)
@@ -78,13 +77,13 @@ namespace MyEshop.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentID = new SelectList(db.Product_Groups, "GroupID", "GroupTitle", product_Groups.ParentID);
-            return View(product_Groups);
+            
+            return PartialView(product_Groups);
         }
 
         // POST: Admin/Product_Groups/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GroupID,GroupTitle,ParentID")] Product_Groups product_Groups)
@@ -93,25 +92,26 @@ namespace MyEshop.Areas.Admin.Controllers
             {
                 db.Entry(product_Groups).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return PartialView("ListGroups", db.Product_Groups.Where(g => g.ParentID == null));
             }
             ViewBag.ParentID = new SelectList(db.Product_Groups, "GroupID", "GroupTitle", product_Groups.ParentID);
             return View(product_Groups);
         }
 
         // GET: Admin/Product_Groups/Delete/5
-        public ActionResult Delete(int? id)
+        public void Delete(int id)
         {
-            if (id == null)
+            var group = db.Product_Groups.Find(id);
+            if (group.Product_Groups1.Any())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                foreach (var subGroup in db.Product_Groups.Where(g=>g.ParentID==id))
+                {
+                    //db.Entry(subGroup).State = EntityState.Deleted;
+                    db.Product_Groups.Remove(subGroup);
+                }
             }
-            Product_Groups product_Groups = db.Product_Groups.Find(id);
-            if (product_Groups == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product_Groups);
+            db.Product_Groups.Remove(group);
+            db.SaveChanges();
         }
 
         // POST: Admin/Product_Groups/Delete/5
